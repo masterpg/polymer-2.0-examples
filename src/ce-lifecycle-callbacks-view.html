@@ -1,0 +1,164 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-styles/color.html">
+<link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
+
+<dom-module id="ce-lifecycle-callbacks-view">
+  <template>
+    <style include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning"></style>
+    <style>
+      :host {
+        display: block;
+      }
+
+      #contentBox {
+        height: 60px;
+      }
+
+      #contentBox > * {
+        margin-right: 24px;
+      }
+
+      #contentBox > *:last-child {
+        margin-right: 0;
+      }
+
+      paper-button.indigo {
+        color: var(--paper-indigo-500);
+      }
+
+      .wrapper {
+        margin: 24px;
+      }
+    </style>
+
+    <div class="wrapper">
+      <div id="contentBox" class="layout horizontal end-justified center">
+        <!--
+          `label`プロパティを属性として`$`でバインドすると、バインドされた変数に変更があった際
+          コンポーネント内では`attributeChangedCallback()`が発火される
+        -->
+        <ce-lifecycle-callbacks-content id="content" label$="[[__contentLabel]]" class="flex"></ce-lifecycle-callbacks-content>
+        <paper-button id="addOrRemButton" on-click="__addOrRemButtonOnClick" class="indigo">[[__addOrRemButtonLabel]]</paper-button>
+      </div>
+      <paper-input always-float-label label="ラベル" value="{{__contentLabel}}"></paper-input>
+    </div>
+  </template>
+  <script>
+    class CeElementLifecycleView extends Polymer.Element {
+      constructor() {
+        super();
+        this.__appended = true;
+        this.__contentLabel = 'Hello World!';
+      }
+
+      static get is() {
+        return 'ce-lifecycle-callbacks-view';
+      }
+
+      static get properties() {
+        return {
+          __addOrRemButtonLabel: {
+            type: String,
+            computed: '__computeAddOrRemButtonLabel(__appended)',
+          }
+        }
+      }
+
+      __computeAddOrRemButtonLabel(appended) {
+        return appended ? '削除' : '追加';
+      }
+
+      __addOrRemButtonOnClick(event) {
+        if (this.__appended) {
+          this.$.contentBox.removeChild(this.$.content);
+        } else {
+          this.$.contentBox.insertBefore(this.$.content, this.$.addOrRemButton);
+        }
+        this.__appended = !this.__appended;
+      }
+    }
+
+    customElements.define(CeElementLifecycleView.is, CeElementLifecycleView);
+  </script>
+</dom-module>
+
+
+<dom-module id="ce-lifecycle-callbacks-content">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      .card {
+        /*margin: 24px;*/
+        padding: 16px;
+        color: #757575;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+
+    <div class="card">[[label]]</div>
+  </template>
+  <script>
+    class CeLifecycleCallbacksContent extends Polymer.Element {
+      static get is() {
+        return 'ce-lifecycle-callbacks-content';
+      }
+
+      static get properties() {
+        return {
+          label: String,
+        };
+      }
+
+      /**
+       * エレメントがアップグレードされた際に呼び出される。
+       * (アップグレードとは、エレメントが作成される、または事前に作成
+       * されたエレメントが定義されたエレメントになることを指す。)
+       */
+      constructor() {
+        super();
+        console.log('constructor');
+      }
+
+      /**
+       * エレメントがドキュメントに初回追加された際に呼び出される。
+       */
+      ready() {
+        super.ready();
+        console.log('ready');
+      }
+
+      /**
+       * エレメントがドキュメントに追加される際に呼び出される。
+       */
+      connectedCallback() {
+        super.connectedCallback();
+        console.log('connectedCallback');
+      }
+
+      /**
+       * エレメントがドキュメントから削除される際に呼び出される。
+       */
+      disconnectedCallback() {
+        super.disconnectedCallback();
+        console.log('disconnectedCallback');
+      }
+
+      /**
+       * エレメントの属性が変更/追加/削除/置き換えされる際に呼び出される。
+       */
+      attributeChangedCallback(name, oldValue, newValue) {
+        super.attributeChangedCallback(name, oldValue, newValue);
+        console.log('attributeChangedCallback');
+      }
+    }
+
+    customElements.define(CeLifecycleCallbacksContent.is, CeLifecycleCallbacksContent);
+  </script>
+</dom-module>

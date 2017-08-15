@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="ce-register-element">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .card {
+        margin: 24px;
+        padding: 16px;
+        color: #757575;
+        border-radius: 5px;
+        background-color: #fff;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+    <div class="card">Hello World!</div>
+  </template>
+  <script>
+    // エレメントに対するクラスを定義
+    class CeRegisterElementView extends Polymer.Element {
+      // このエレメントの名前を返すisというgetterを定義する必要がある
+      static get is() {
+        return 'ce-register-element';
+      }
+    }
+
+    // 上記で定義したエレメントの名前とクラスを関連付ける
+    customElements.define(CeRegisterElementView.is, CeRegisterElementView);
+  </script>
+</dom-module>
