@@ -1,0 +1,46 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="qt-picture-frame-view">
+
+  <template>
+    <qt-picture-frame-content>
+      <img src="images/logos/p-logo-32.png">
+    </qt-picture-frame-content>
+  </template>
+
+  <script>
+    class QtPictureFrameView extends Polymer.Element {
+      static get is() { return 'qt-picture-frame-view'; }
+    }
+    customElements.define(QtPictureFrameView.is, QtPictureFrameView);
+  </script>
+
+</dom-module>
+
+
+<dom-module id="qt-picture-frame-content">
+
+  <template>
+    <!-- このCSSはエレメントのスコープに限定される -->
+    <style>
+      div {
+        display: inline-block;
+        background-color: #ccc;
+        border-radius: 8px;
+        padding: 4px;
+      }
+    </style>
+    <div>
+      <!-- エレメントの利用側で記述された子ノードがここに流し込まれる -->
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    class QtPictureFrameContent extends Polymer.Element {
+      static get is() { return 'qt-picture-frame-content'; }
+    }
+    customElements.define(QtPictureFrameContent.is, QtPictureFrameContent);
+  </script>
+
+</dom-module>

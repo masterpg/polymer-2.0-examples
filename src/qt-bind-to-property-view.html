@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../bower_components/iron-input/iron-input.html">
+
+<dom-module id="qt-bind-to-property-view">
+
+  <template>
+    <!-- `owner`プロパティをバインドする -->
+    <p>This is <b>[[owner]]</b>'s name-tag element.</p>
+
+    <!-- iron-inputは`bind-value`というtwo-wayバインド可能なプロパティを提供する -->
+    <iron-input bind-value="{{owner}}">
+      <input is="iron-input" placeholder="Your name here...">
+    </iron-input>
+  </template>
+
+  <script>
+    class QtBindToPropertyView extends Polymer.Element {
+      static get is() { return "qt-bind-to-property-view"; }
+
+      // `owner`プロパティを設定する
+      static get properties() {
+        return {
+          owner: {
+            type: String,
+            value: 'Daniel'
+          }
+        };
+      }
+
+    }
+    customElements.define(QtBindToPropertyView.is, QtBindToPropertyView);
+  </script>
+
+</dom-module>

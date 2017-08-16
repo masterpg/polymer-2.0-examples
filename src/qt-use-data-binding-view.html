@@ -1,0 +1,23 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="qt-use-data-binding-view">
+
+  <template>
+    <!-- `owner`プロパティをバインドする -->
+    This is <b>{{owner}}</b>'s qt-use-data-binding element.
+  </template>
+
+  <script>
+    class QtUseDataBindingView extends Polymer.Element {
+      static get is() { return "qt-use-data-binding-view"; }
+
+      // `owner`プロパティの設定を行う
+      constructor() {
+        super();
+        this.owner = "Daniel";
+      }
+    }
+    customElements.define(QtUseDataBindingView.is, QtUseDataBindingView);
+  </script>
+
+</dom-module>

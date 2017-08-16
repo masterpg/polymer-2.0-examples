@@ -5,6 +5,7 @@
 <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout-classes.html">
 
 <dom-module id="ce-lifecycle-callbacks-view">
+
   <template>
     <style include="iron-flex iron-flex-alignment iron-flex-reverse iron-flex-factors iron-positioning"></style>
     <style>
@@ -45,6 +46,7 @@
       <paper-input always-float-label label="ラベル" value="{{__contentLabel}}"></paper-input>
     </div>
   </template>
+
   <script>
     class CeElementLifecycleView extends Polymer.Element {
       constructor() {
@@ -82,10 +84,12 @@
 
     customElements.define(CeElementLifecycleView.is, CeElementLifecycleView);
   </script>
+
 </dom-module>
 
 
 <dom-module id="ce-lifecycle-callbacks-content">
+
   <template>
     <style>
       :host {
@@ -104,6 +108,7 @@
 
     <div class="card">[[label]]</div>
   </template>
+
   <script>
     class CeLifecycleCallbacksContent extends Polymer.Element {
       static get is() {
@@ -161,4 +166,5 @@
 
     customElements.define(CeLifecycleCallbacksContent.is, CeLifecycleCallbacksContent);
   </script>
+
 </dom-module>

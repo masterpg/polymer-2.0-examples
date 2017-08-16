@@ -1,0 +1,20 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="qt-dom-element-view">
+
+  <!--
+    PolymerのDOMテンプレートによりエレメントにShadow DOMを作成することができる。
+    作成されたShadow DOMはエレメント内にカプセル化される。
+  -->
+  <template>
+    <p>I'm a DOM element. This is my shadow DOM!</p>
+  </template>
+
+  <script>
+    class QtDomElementView extends Polymer.Element {
+      static get is() { return 'qt-dom-element-view'; }
+    }
+    customElements.define(QtDomElementView.is, QtDomElementView);
+  </script>
+
+</dom-module>

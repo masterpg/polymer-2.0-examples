@@ -1,0 +1,26 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<dom-module id="qt-declare-property-view">
+
+  <template>
+    <!-- `owner`プロパティをバインドする -->
+    This is <b>[[owner]]</b>'s qt-declare-property-view element.
+  </template>
+
+  <script>
+    class QtDeclarePropertyView extends Polymer.Element {
+      static get is() { return "qt-declare-property-view"; }
+      // `owner`プロパティを設定する
+      static get properties() {
+        return {
+          owner: {
+            type: String,
+            value: 'Daniel',
+          }
+        };
+      }
+    }
+    customElements.define(QtDeclarePropertyView.is, QtDeclarePropertyView);
+  </script>
+
+</dom-module>

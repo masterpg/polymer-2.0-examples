@@ -1,0 +1,14 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html">
+
+<script>
+  // `qt-custom-element-view`と呼ばれる新しいエレメントを定義する
+  class QtCustomElementView extends Polymer.Element {
+    static get is() { return 'qt-custom-element-view'; }
+    constructor() {
+      super();
+      this.textContent = "I'm a qt-custom-element-view.";
+    }
+  }
+  // ブラウザに新しいエレメントを登録する
+  customElements.define(QtCustomElementView.is, QtCustomElementView);
+</script>

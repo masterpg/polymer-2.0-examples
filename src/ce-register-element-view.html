@@ -1,6 +1,7 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 
-<dom-module id="ce-register-element">
+<dom-module id="ce-register-element-view">
+
   <template>
     <style>
       :host {
@@ -17,16 +18,18 @@
     </style>
     <div class="card">Hello World!</div>
   </template>
+
   <script>
     // エレメントに対するクラスを定義
     class CeRegisterElementView extends Polymer.Element {
       // このエレメントの名前を返すisというgetterを定義する必要がある
       static get is() {
-        return 'ce-register-element';
+        return 'ce-register-element-view';
       }
     }
 
     // 上記で定義したエレメントの名前とクラスを関連付ける
     customElements.define(CeRegisterElementView.is, CeRegisterElementView);
   </script>
+
 </dom-module>

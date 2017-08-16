@@ -22,7 +22,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="../bower_components/paper-icon-button/paper-icon-button.html">
 <link rel="import" href="my-icons.html">
 
-<link rel="lazy-import" href="ce-register-element.html">
+<link rel="lazy-import" href="qt-custom-element-view.html">
+<link rel="lazy-import" href="qt-dom-element-view.html">
+<link rel="lazy-import" href="qt-picture-frame-view.html">
+<link rel="lazy-import" href="qt-use-data-binding-view.html">
+<link rel="lazy-import" href="qt-declare-property-view.html">
+<link rel="lazy-import" href="qt-bind-to-property-view.html">
+<link rel="lazy-import" href="qt-use-dom-repeat-view.html">
+<link rel="lazy-import" href="ce-register-element-view.html">
 <link rel="lazy-import" href="ce-lifecycle-callbacks-view.html">
 <link rel="lazy-import" href="my-view1.html">
 <link rel="lazy-import" href="my-view2.html">
@@ -82,7 +89,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
-          <a name="ce-register-element" href="[[rootPath]]ce-register-element">Defining an element</a>
+          <a name="qt-custom-element-view" href="[[rootPath]]qt-custom-element-view">Register an element</a>
+          <a name="qt-dom-element-view" href="[[rootPath]]qt-dom-element-view">Add shadow DOM</a>
+          <a name="qt-picture-frame-view" href="[[rootPath]]qt-picture-frame-view">Compose with shadow DOM</a>
+          <a name="qt-use-data-binding-view" href="[[rootPath]]qt-use-data-binding-view">Use data binding</a>
+          <a name="qt-declare-property-view" href="[[rootPath]]qt-declare-property-view">Declare a property</a>
+          <a name="qt-bind-to-property-view" href="[[rootPath]]qt-bind-to-property-view">Bind to a property</a>
+          <a name="qt-use-dom-repeat-view" href="[[rootPath]]qt-use-dom-repeat-view">Using &lt;dom-repeat&gt; for template repeating</a>
+          <a name="ce-register-element-view" href="[[rootPath]]ce-register-element-view">Defining an element</a>
           <a name="ce-lifecycle-callbacks-view" href="[[rootPath]]ce-lifecycle-callbacks-view">Lifecycle methods</a>
           <a name="view1" href="[[rootPath]]my-view1">View One</a>
           <a name="view2" href="[[rootPath]]my-view2">View Two</a>
@@ -105,7 +119,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             attr-for-selected="name"
             fallback-selection="view404"
             role="main">
-          <ce-register-element name="ce-register-element"></ce-register-element>
+          <qt-custom-element-view name="qt-custom-element-view"></qt-custom-element-view>
+          <qt-dom-element-view name="qt-dom-element-view"></qt-dom-element-view>
+          <qt-picture-frame-view name="qt-picture-frame-view"></qt-picture-frame-view>
+          <qt-use-data-binding-view name="qt-use-data-binding-view"></qt-use-data-binding-view>
+          <qt-declare-property-view name="qt-declare-property-view"></qt-declare-property-view>
+          <qt-bind-to-property-view name="qt-bind-to-property-view"></qt-bind-to-property-view>
+          <qt-use-dom-repeat-view name="qt-use-dom-repeat-view"></qt-use-dom-repeat-view>
+          <ce-register-element-view name="ce-register-element-view"></ce-register-element-view>
           <ce-lifecycle-callbacks-view name="ce-lifecycle-callbacks-view"></ce-lifecycle-callbacks-view>
           <my-view1 name="my-view1"></my-view1>
           <my-view2 name="my-view2"></my-view2>
