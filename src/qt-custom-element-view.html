@@ -3,7 +3,9 @@
 <script>
   // `qt-custom-element-view`と呼ばれる新しいエレメントを定義する
   class QtCustomElementView extends Polymer.Element {
+    // このエレメントの名前を返すisというgetterを定義する必要がある
     static get is() { return 'qt-custom-element-view'; }
+
     constructor() {
       super();
       this.textContent = "I'm a qt-custom-element-view.";
